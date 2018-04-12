@@ -80,8 +80,8 @@ int main(){
     prob = forward(n, in, 0, trans, emat) + forward(n, in, 1, trans, emat);
     cout<<"Probability of the sequence: "<<prob<<"\n";
     
-    bprob = backward(0, in, 0, trans, emat) + backward(0, in, 1, trans, emat);
-    cout<<"Using backward algorithm: "<<prob<<"\n";
+    bprob = trans[0][1] * emat[0][in[0]] * backward(0, in, 0, trans, emat) + trans[0][2] * emat[1][in[0]] * backward(0, in, 1, trans, emat);
+    cout<<"Using backward algorithm: "<<bprob<<"\n";
     
     return 0;
 }
